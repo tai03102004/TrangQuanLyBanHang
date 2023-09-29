@@ -1,0 +1,283 @@
+/* Header */
+.header {
+    background: #333; /* Darker background color */
+    padding: 15px; /* Increased padding */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.header .inner-logo a {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+  /* End Header */
+
+  /* Body */
+.body .sider {
+    width: 200px; /* Increased width */
+    background: #444; /* Darker background color */
+    color: #fff;
+    height: calc(100vh - 60px); /* Adjusted height */
+    position: fixed;
+    top: 60px; /* Adjusted top position */
+    left: 0;
+}
+
+.body .main {
+    margin: 20px; /* Increased margin */
+    position: relative;
+    left: 200px; /* Adjusted left position */
+    width: calc(100% - 220px); /* Adjusted width */
+}
+
+  /* End Body */
+
+  /* Sider */
+.sider .inner-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sider .inner-menu ul li a {
+    color: #fff;
+    display: block;
+    padding: 10px 20px; /* Adjusted padding */
+    border-bottom: 1px solid #555; /* Adjusted border color */
+}
+
+/*
+@font-face {
+    font-family: 'Orbitron';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/orbitron/v31/yMJRMIlzdpvBhQQL_Qq7dy1biN15.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/orbitron/v31/yMJRMIlzdpvBhQQL_Qq7dy1biN15.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/orbitron/v31/yMJRMIlzdpvBhQQL_Qq7dy1biN15.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+} 
+
+@font-face {
+    font-family: 'Orbitron';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/orbitron/v31/yMJRMIlzdpvBhQQL_Qq7dy1biN15.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+} */
+section{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F0F8FF;
+    padding: 0 20px;
+}
+section.dark{
+    background: #24292D;
+}
+section .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 220px;
+    max-width: 560px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    position: relative;
+}
+section.dark .container{
+    background: #323840;
+}
+section .container .icons i{
+    position: absolute;
+    right: 17px;
+    top: 17px;
+    height: 30px;
+    width: 30px;
+    background: #24292D;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+}
+section.dark .container .icons i{
+    background: #fff;
+    color: #323840;
+}
+.container .icons i.fa-sun{
+    opacity: 0;
+    pointer-events: none;
+}
+section.dark .container .icons i.fa-sun{
+    opacity: 1;
+    pointer-events: auto;
+    font-size: 16px;
+}
+section .container .time{
+    display: flex;
+    align-items: center;
+}
+.container .time .time-colon{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.time .time-colon .am_pm{
+    position: absolute;
+    top: 0;
+    right: -50px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+section.dark .time .time-colon .am_pm{
+    color: #fff;
+}
+.time .time-colon .time-text{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: #F0F8FF;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+section.dark .time .time-colon .time-text{
+    background: #24292D;
+}
+.time .time-colon .time-text,
+.time .time-colon .colon{
+    font-size: 35px;
+    font-weight: 600;
+}
+section.dark .time .time-text .num,
+section.dark .time .colon{
+    color: #fff;
+}
+.time .time-colon .colon{
+    font-size: 40px;
+    margin: 0 10px;
+}
+.time .time-colon .time-text .text{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+section.dark  .time .time-colon .text{
+    color: #fff;
+}
+
+/* styles.css */
+
+.badge {
+    padding: 6px 12px; /* Điều chỉnh padding để nút nhỏ hơn */
+    border-radius: 5px;
+    font-size: 12px; /* Điều chỉnh font-size để nút nhỏ hơn */
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    transition: transform 0.2s, filter 0.2s; /* Thêm transition cho hiệu ứng phóng to và độ sáng */
+}
+
+.badge-success {
+    background-color: green;
+    color: white;
+}
+
+.badge-danger {
+    background-color: red;
+    color: white;
+}
+
+.badge:hover {
+    transform: scale(1.05); /* Phóng to nút khi hover */
+    filter: brightness(1.4); /* Tăng độ sáng khi hover */
+}
+
+.badge:active {
+    transform: scale(1.05); /* Phóng to nút khi nhấn */
+    filter: brightness(1.4); /* Tăng độ sáng khi nhấn */
+}
+
+/* End Sider */
+
+/* Show Alert */
+[show-alert] {
+    position: fixed;
+    top: 70px;
+    right: 15px;
+    z-index: 9999;
+}
+
+[show-alert].alert-hidden {
+    animation-name: alert-hidden;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes alert-hidden {
+    from {
+        right: 15px;
+    }
+    to {
+        right: -100%;
+        display: none;
+    }
+}
+
+[show-alert] [close-alert] {
+    background: #ffffffc4;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 50%;
+    cursor: pointer;
+}
+  /* End Show Alert */
+
+/* Image Preview */
+.image-preview {
+    width: 150px;
+    height: auto;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.image-preview[src=""] {
+    display: none;
+}
+  /* End Image Preview */

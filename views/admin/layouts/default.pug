@@ -1,0 +1,22 @@
+doctype html
+html
+    head
+        title #{pageTitle}
+
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/admin/css/style.css")
+        link(rel="stylesheet", href = "/fontawesome-free-6.4.0/css/all.min.css" )
+        link(rel="website icon" ,type = "png" ,href ="https://inkythuatso.com/uploads/thumbnails/800/2021/11/logo-bmw-inkythuatso-4-01-11-10-00-03.jpg")
+
+    body
+
+        include ../partials/header.pug
+
+        .body   
+
+            include ../partials/sider.pug
+            .main
+                block main
+
+        script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js") 
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js")

@@ -1,0 +1,24 @@
+extends ../../layouts/default.pug
+block main
+    section
+        .container
+            .icons
+                i.fas.fa-moon
+                i.fas.fa-sun
+            .time
+                .time-colon
+                    .time-text
+                        span.num.hour_num 08
+                        span.text Hours
+                    span.colon :
+                .time-colon
+                    .time-text
+                        span.num.min_num 45
+                        span.text Minutes
+                    span.colon :
+                .time-colon
+                    .time-text
+                        span.num.sec_num 06
+                        span.text Seconds
+                    span.am_pm AM
+    script(src="/admin/js/script.js") 
