@@ -14,7 +14,7 @@ const database = require("./config/database");
 database.connect(); 
 
 // để web đẹp hơn
-app.use(express.static("public"));
+app.use(express.static(`${__dirname}/public`));
 
 // Flash
 app.use(cookieParser("LHNASDASDAD"));
@@ -33,7 +33,7 @@ const methodOverride = require('method-override');
 app.use(methodOverride('_method'))
 
 // file pug
-app.set("views","./views");
+app.set("views", `${__dirname}/views`);
 app.set('view engine', 'pug');
 
 // Trang admin
