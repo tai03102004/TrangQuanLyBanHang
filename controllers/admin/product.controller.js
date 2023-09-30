@@ -38,9 +38,8 @@ module.exports.index = async (req, res) => {
         };
         const countProducts = await Product.count(find);  // Tổng số sản phẩm (deleted: false)
         const objectPagination = paginationHelper(initPagination, req.query, countProducts);
-      // End Pagination
-    
-    
+        // End Pagination
+
         const products = await Product.find(find)
             .sort({ position: "desc" })  // sắp xếp cái position theo thứ tự giảm dần
             .limit(objectPagination.limitItems) // giới hạn sản phẩm 1 trang
@@ -127,7 +126,6 @@ module.exports.changeMulti = async (req, res) => {
 // [DELETE] /admin/products/delete/:id
 module.exports.deleteItem = async (req, res) => {
     const id = req.params.id;
-
     await Product.updateOne({ _id: id }, {
         deleted: true, // để ẩn
         deletedAt: new Date() // time delete
@@ -141,8 +139,17 @@ module.exports.deleteItem = async (req, res) => {
 // [GET] /admin/products/create
 // tiêu đề của phần taọ mới sản phẩm
 module.exports.create = async (req, res) => {
+    const id = req.params.id;
+    const product = await Product.findOne({
+        _id: id,
+        deleted: false
+    })
+
+    // console.log(product);
+
     res.render("admin/pages/products/create", {
-        pageTitle: "Tạo mới sản phẩm"
+        pageTitle: "Tạo mới sản phẩm",
+        product: product
     });
 };
 
@@ -162,12 +169,75 @@ module.exports.createPost = async (req, res) => {
         req.body.thumbnail = `/uploads/${req.file.filename}`;
     }
     
-
     const product = new Product(req.body);
     await product.save();
-
     res.redirect(`/${systemConfig.prefixAdmin}/products`);
 };
 
+// [GET] /admin/products/edit
 
+module.exports.edit = async (req, res) => {
+    try{    
+        const id = req.params.id;
+    
+        const product = await Product.findOne({
+            _id: id,
+            deleted: false
+        })
+
+
+        res.render("admin/pages/products/edit", {
+            pageTitle: "Tạo mới sản phẩm",
+            product: product
+        });
+    }
+    catch(err){
+        req.flash("error","Thông tin sản phẩm không tìm thấy");
+        res.redirect(`/${systemConfig.prefixAdmin}/products`);
+    }
+};
+
+// [PATCH] /admin/products/edit/:id
+module.exports.editPatch = async (req, res) => {
+    const id = req.params.id;
+    req.body.price = parseInt(req.body.price);
+    req.body.discountPercentage = parseInt(req.body.discountPercentage);
+    req.body.stock = parseInt(req.body.stock);
+
+    req.body.position = parseInt(req.body.position);
+    if(req.file && req.file.filename) {
+        req.body.thumbnail = `/uploads/${req.file.filename}`;
+    }
+
+    await Product.updateOne({_id: id} , req.body );
+
+    req.flash("success","Cập nhật sản phẩm thành công");
+
+    res.redirect("back");
+};
+
+// [GET] /admin/products/detail/:id
+
+module.exports.detail = async (req, res) => {
+
+    try{
+        const id = req.params.id;
+    
+        const product = await Product.findOne({
+            _id: id,
+            deleted: false
+        })
+
+
+        res.render("admin/pages/products/detail", {
+            pageTitle: "Chi tiết sản phẩm",
+            product: product
+        });
+    }
+    catch(error){
+        res.redirect(`/${systemConfig.prefixAdmin}/products`);
+        req.flash("error",`Thông tin sản phẩm không tìm thấy`);
+    }
+
+};
 

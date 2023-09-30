@@ -1,6 +1,7 @@
 mixin initPagination(pagination)
     nav
         ul(class="pagination justify-content-center")  
+            
             li(class="page-item")
                 if (pagination.currentPage != 1)
                     button(class="page-link" button-pagination=1) Đầu trang
@@ -15,14 +16,26 @@ mixin initPagination(pagination)
                             class="page-link"
                             button-pagination=i
                         ) #{i}
-                    else
+                    else if ( i === pagination.currentPage + 2 )
                         button(
                             class="page-link"
                             button-pagination=i
                         ) ...
+                    else if ( i === pagination.totalPage )
+                        button(
+                            class="page-link"
+                            button-pagination=i
+                        ) #{i}
+                    else 
+                        button.page-link(button-pagination=i, style="display: none;")
+
             li(class="page-item")
                 if (pagination.currentPage < pagination.totalPage)
                     button(class="page-link" button-pagination=pagination.currentPage + 1) Kế tiếp
             li(class="page-item")
-                if (pagination.currentPage != pagination.totalPage)
-                    button(class="page-link" button-pagination=pagination.totalPage) Cuối trang
+                if (pagination.totalPage === 0)
+                    button(class="page-link" button-pagination=pagination.totalPage) 
+                        a(href = `/${prefixAdmin}/products`) Quay lại
+                else
+                    if (pagination.currentPage != pagination.totalPage)
+                        button(class="page-link" button-pagination = pagination.totalPage) Cuối trang

@@ -95,7 +95,14 @@ block main
                       data-id=item.id
                     ) Dừng hoạt động
                 td
-                  button(class="btn btn-warning btn-sm") Sửa
+                  a(
+                    href = `/${prefixAdmin}/products/detail/${item.id}`
+                    class="btn btn-secondary btn-sm"
+                  ) Xem chi tiết
+                  a(
+                    href = `/${prefixAdmin}/products/edit/${item.id}`
+                    class="btn btn-warning btn-sm"
+                  ) Sửa
                   button(
                     class="btn btn-danger btn-sm ml-1"
                     button-delete
@@ -108,10 +115,10 @@ block main
                 class="text-center"
               ) Không tìm thấy sản phẩm nào    
   form(
-        id="form-change-status"
-        method="POST"
-        action=""
-        data-path=`/${prefixAdmin}/products/change-status`
+    id="form-change-status"
+    method="POST"
+    action=""
+    data-path=`/${prefixAdmin}/products/change-status`
   )
   form(
     id="form-delete-item"

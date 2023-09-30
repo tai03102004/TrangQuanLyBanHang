@@ -1,9 +1,9 @@
 mixin alert-success(time)
-    - if (messages.success) //- message.success lưu trữ tạm thời trong 1 season
+    - if (messages.success)
         div(
-        class="alert alert-success"
-        show-alert
-        data-time=time
+            class="alert alert-success"
+            show-alert
+            data-time=time
         ) #{messages.success} <span close-alert>x</span>
 mixin alert-error(time)
     - if (messages.error)

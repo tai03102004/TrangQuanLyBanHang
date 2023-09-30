@@ -281,3 +281,94 @@ section.dark  .time .time-colon .text{
     display: none;
 }
   /* End Image Preview */
+
+  /* chi tiet san pham */
+h1, h2, h3, h4 {
+    color: black;
+    font-weight: normal;
+    margin: 1.75rem 0 1rem 0;
+}
+.product {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .product-image {
+        border: 1px solid #000;
+        float: left;
+        object-fit: fill;  
+        margin-top: 50px;  
+        margin-right: 15px;
+    }
+    .product-image::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+
+    .product-info {
+        padding: 1rem;
+    }
+}
+
+.breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    list-style: none;
+    li {
+        font-size: 0.85rem;
+        letter-spacing: 0.125rem;
+        text-transform: uppercase;
+    }
+}
+
+.breadcrumb-item {
+    &.active {
+        color: black;
+    }
+    + .breadcrumb-item {
+        &::before {
+            content: '/';
+            display: inline-block;
+            padding: 0 0.5rem;
+            color: #D3D3D3;
+        }
+    }
+}
+.container {
+    margin: auto;
+    padding: 0 1rem;
+    max-width: 75rem;
+    width: 100%;
+}
+.grid {
+    > [class*="column-"] {
+        padding: 1rem;
+    }
+    &.menu, &.product {
+        border-bottom: 0.0625rem solid gray;
+    }
+    &.menu {
+        > [class*="column-"] {
+            padding: 0.5rem 1rem 0.5rem 1rem;
+        }
+    }
+    &.product {
+        padding: 0 0 1.5rem 0;
+    }
+    &.second-nav {
+        > [class*="column-"] {
+            padding: 0.5rem 1rem;
+        }
+    }
+}
+.description {
+    border-top: 0.0625rem solid gray;
+    margin: 2rem 0;
+    padding: 1rem 0 0 0;
+
+}
