@@ -36,6 +36,7 @@ app.use(methodOverride('_method'))
 app.set("views", `${__dirname}/views`);
 app.set('view engine', 'pug');
 
+
 // Trang admin
 const routeAdmin = require("./routes/admin/index.route");
 routeAdmin(app);

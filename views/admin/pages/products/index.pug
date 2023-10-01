@@ -39,6 +39,11 @@ block main
         class="table table-hover table-sm"
         checkbox-multi
       )
+        style
+          | th.action-header {
+          |   text-align: left;
+          |   padding-left: 60px;
+          | }
         thead
           tr
             th
@@ -49,7 +54,7 @@ block main
             th Giá
             th Vị trí
             th Trạng thái
-            th Hành động
+            th.action-header Hành động
 
         tbody
           if(products.length > 0)
@@ -98,6 +103,7 @@ block main
                   a(
                     href = `/${prefixAdmin}/products/detail/${item.id}`
                     class="btn btn-secondary btn-sm"
+                    style = "margin-right: 5px"
                   ) Xem chi tiết
                   a(
                     href = `/${prefixAdmin}/products/edit/${item.id}`
