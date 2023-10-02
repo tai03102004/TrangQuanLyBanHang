@@ -223,3 +223,46 @@ if(uploadImage) {
   });
 }
 // End Upload Image
+
+// Sort
+
+const sort = document.querySelector("[sort]");
+// Sắp xếp
+if(sort){
+  let url = new URL(window.location.href); // url trang
+
+  const sortSelect = sort.querySelector("[sort-select]");
+  sortSelect.addEventListener("change", (e) => {
+    const value = e.target.value;
+
+    const [sortKey,sortValue] = value.split("-");
+
+    url.searchParams.set("sortKey",sortKey); // Thêm href dạng products/?sortKey=
+    url.searchParams.set("sortValue",sortValue);// Thêm href dạng products/?sortValue=
+    
+    window.location.href = url.href;
+
+  })
+  // Xoá sắp xếp : để xoá cái href : ?sortKey=price&sortValue=desc
+  const sortClear = sort.querySelector("[sort-clear]");
+
+  sortClear.addEventListener("click",()=>{
+    url.searchParams.delete("sortKey");
+    url.searchParams.delete("sortValue");
+    window.location.href = url.href;
+
+  })
+
+  // Hiển thị mặc định
+  const sortKey = url.searchParams.get("sortKey");
+  const sortValue = url.searchParams.get("sortValue");
+
+  if(sortKey && sortValue){
+    const stringSort = `${sortKey}-${sortValue}`;
+    const optionSelected = sortSelect.querySelector(`option[value='${stringSort}']`);
+    optionSelected.selected = true;
+  }
+}
+
+
+// End sort

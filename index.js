@@ -4,6 +4,7 @@ const app = express();
 const flash = require("express-flash");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+var path = require('path');
 
 
 //  Ẩn những file mình làm
@@ -15,6 +16,13 @@ database.connect();
 
 // để web đẹp hơn
 app.use(express.static(`${__dirname}/public`));
+
+// để chỉnh nhiều fone(tinymce) phải nhúng path
+app.use(
+    '/tinymce', 
+    express.static(path.join(__dirname, 'node_modules', 'tinymce'))
+);
+
 
 // Flash
 app.use(cookieParser("LHNASDASDAD"));

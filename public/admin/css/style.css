@@ -372,3 +372,20 @@ h1, h2, h3, h4 {
     padding: 1rem 0 0 0;
 
 }
+
+/* sort */
+.sort {
+    display: flex;
+    align-items: center;
+}
+
+.sort select {
+    margin-right: 10px; /* Add some margin between the select and button */
+}
+
+  /* Optional: Adjust the margin for the "Clear" button */
+.btn-danger {
+    margin-top: 0;
+}
+
+/* ENd sort */

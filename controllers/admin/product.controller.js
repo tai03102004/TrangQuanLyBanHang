@@ -40,8 +40,22 @@ module.exports.index = async (req, res) => {
         const objectPagination = paginationHelper(initPagination, req.query, countProducts);
         // End Pagination
 
+        // sort
+        let sort = {
+
+        };
+
+        if(req.query.sortKey && req.query.sortValue ){
+            sort[req.query.sortKey] = req.query.sortValue;
+        }
+        else {
+            sort.position = "desc";
+        }
+
+        // End sort
+
         const products = await Product.find(find)
-            .sort({ position: "desc" })  // sắp xếp cái position theo thứ tự giảm dần
+            .sort( sort )  // sắp xếp cái position theo thứ tự giảm dần
             .limit(objectPagination.limitItems) // giới hạn sản phẩm 1 trang
             .skip(objectPagination.skip); // để bỏ qua sản phẩm
     
