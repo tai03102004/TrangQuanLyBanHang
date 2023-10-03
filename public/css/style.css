@@ -59,17 +59,22 @@
     color: green;
     margin-bottom: 5px;
 }
-
-.product-item .inner-discount {
-    font-size: 14px;
-    font-weight: 600;
-    color: white;
-    background: red;
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 8px;
-    margin-right: 5px;
+.product-item .inner-price-container {
+    min-width: 100px; /* Đặt kích thước tối thiểu (cần phù hợp với nhu cầu của bạn) */
+    height: 50px;
 }
+.product-item .inner-discount {
+    font-size: 10px; /* Đặt kích thước font chữ nhỏ hơn */
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(169, 169, 169, 0.7);
+    display: inline-block;
+    padding: 4px 8px; /* Điều chỉnh lề */
+    border-radius: 6px; /* Đặt góc bo nhỏ hơn */
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
 
 .product-container {
     display: flex;
@@ -145,7 +150,7 @@
 
 .menu.active .toggle {
     transform: rotate(360deg);
-    box-shadow: 0 6px 8px rgba(0, 0, 255, 0.1), /* Chỉnh sửa màu shadow */
+    box-shadow: 0 6px 8px rgba(76, 76, 138, 0.1), /* Chỉnh sửa màu shadow */
     0 0 0 2px #ADC8A0,
     0 0 0 8px #675A85;
 }
@@ -350,7 +355,7 @@ grid-row-end: 3; */
 }
 
 .section-footer {
-    background: var(--primary-color);
+    background:#EDEDED;
     color: #fff;
     padding: 4rem 0;
 }
@@ -359,24 +364,28 @@ grid-row-end: 3; */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 1rem;
+    /* background: #EDEDED; */
 }
 
 .section-footer h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color : black;
 }
 
 .section-footer h3 {
     margin-bottom: 0.7rem;
+    color : black;
+
 }
 
 .section-footer a {
     line-height: 1.9;
-    color: #ccc;
+    color : rgb(10, 2, 2);
 }
 
 .section-footer a > i {
-    color: #555;
+    color : rgb(12, 2, 2);
     margin-right: 0.5rem;
 }
 
@@ -390,11 +399,6 @@ grid-row-end: 3; */
     margin-top: 1rem;
 }
 
-/* // .form-control-wrap {
-// 	position: relative;
-// 	display: inline-block;
-// 	width: 100%;
-// } */
 
 .email-form .form-control {
     display: inline-block;
@@ -503,4 +507,482 @@ border-radius: 30px;
 .section-footer div:nth-child(3) {
     display: none;
     }
+}
+
+/* Search */
+
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.search, .search__icon, .search__input {
+    color: hsl(0, 0%, 100%);
+}
+
+.search {
+    width: 10em;
+}
+
+.search__button, .search__input {
+    outline: transparent;
+}
+
+.search__button {
+    background-color: transparent;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0.1em;
+    width: 2em;
+    height: 2em;
+    -webkit-tap-highlight-color: transparent;
+}
+
+[dir="rtl"] .search__button {
+    right: auto;
+    left: 0.1em;
+    transform: scaleX(-1);
+}
+
+.search__icon {
+    display: block;
+    margin: auto;
+    transition: color 0.15s linear;
+    width: 2em;
+    height: 2em;
+}
+
+.search__button:focus-visible .search__icon, .search__button:hover .search__icon {
+    color: hsl(var(--hue), 90%, 80%);
+}
+
+.search__icon-ellipse {
+    transition: ry var(--trans-dur) var(--trans-timing);
+}
+
+.search__icon-g, .search__icon-line2, .search__icon-line3 {
+    transition: transform var(--trans-dur) var(--trans-timing);
+}
+
+.search__icon-g {
+    transform: translate(4px, 4px);
+    transform-origin: 8px 8px;
+}
+
+.search__icon-line2, .search__icon-line3 {
+    transform-origin: 14px 14px;
+}
+
+.search__input {
+    background-color: hsl(120, 90%, 90%); 
+    border-radius: 0.3em;
+    box-shadow: 0 0.25em 0.5em hsla(var(--hue), 90%, 60%, 0.4);
+    padding: 0.1em 0.6em;
+    padding-inline-end: 1.4em;
+    transition: background-color hsl(120, 90%, 90%), box-shadow 0.15s linear;
+    width: 100%;
+    height: 2em;
+}
+
+.search__input::placeholder {
+    color: hsl(120, 90%, 90%);
+    transition: color var(--trans-dur);
+}
+
+.search__input-wrap {
+    position: relative;
+}
+
+.search__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: hsl(var(--hue), 90%, 10%);
+        --fg: hsl(var(--hue), 90%, 90%);
+    }
+    .search__input {
+        background-color: hsl(300, 33%, 66%);
+        box-shadow: 0 0.25em 0.5em hsla(var(--hue), 90%, 40%, 0.4);
+    }
+    .search__input::placeholder {
+        color: hsl(var(--hue), 90%, 70%);
+    }
+}
+
+@keyframes search-icon-bounce {
+    from, to {
+        animation-timing-function: cubic-bezier(0.65, 0, 1, 1);
+        transform: translateX(0);
+    }
+    50% {
+        animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
+        transform: translateX(6.25%);
+    }
+}
+
+@keyframes search-icon-bounce-rtl {
+    from, to {
+        animation-timing-function: cubic-bezier(0.65, 0, 1, 1);
+        transform: scaleX(-1) translateX(0);
+    }
+    50% {
+        animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
+        transform: scaleX(-1) translateX(6.25%);
+    }
+}
+
+
+/* ENd search */
+
+.rectangle {
+    height: 43.91px; /* Adjust the height as needed */
+    position: relative;
+    margin: 20px;
+    transform-style: preserve-3d;
+    animation: rotate 5s infinite linear; /* Animation to rotate the rectangles */
+    opacity: 0.5; /* Adjust the opacity for the blur effect */
+    z-index: -1; /* Place the rectangles behind the text */
+}
+
+.green {
+    width: 166.67px; /* Adjust the width as needed */
+    height: 60.91px; /* Adjust the height as needed */
+    background-color: var(--green);
+    transform: rotateX(0deg) rotateY(90deg) translateZ(100px); /* Adjust the position and depth */
+    left: 100px;
+    bottom: 50px;
+    animation: skewLeftRight 2.5s infinite ease-in-out alternate 0.5s; /* Apply the animation with a delay */
+}
+.red {
+    width: 166.67px; /* Adjust the width as needed */
+    height: 60.91px; /* Adjust the height as needed */
+    background-color: var(--red);
+    transform: rotateX(0deg) rotateY(90deg) translateZ(100px); /* Adjust the position and depth */
+    left: 20px; /* Điều chỉnh khoảng cách từ lề trái */
+    bottom: 50px; 
+    animation: skewUpDown 2.5s infinite ease-in-out alternate; 
+
+}
+.blue {
+    width: 166.67px; /* Adjust the width as needed */
+    height: 60.91px; /* Adjust the height as needed */
+    background-color: var(--blue);
+    left: 60%; /* Đặt màu blue ở giữa màn hình theo chiều ngang */
+    transform: translateX(-50%); /* Điều chỉnh để màu blue nằm chính giữa */
+    bottom: 40px;
+    animation: skewRightLeft 2.5s infinite ease-in-out alternate 1s; /* Apply the animation with a delay */
+}
+@keyframes skewUpDown {
+    0% {
+      transform: translateY(0) skewX(-15deg); /* Initial position with skew */
+    }
+    50% {
+      transform: translateY(-20px) skewX(-15deg); /* Skew with upward movement */
+    }
+    100% {
+      transform: translateY(0) skewX(-15deg); /* Back to original position with skew */
+    }
+}
+
+@keyframes skewLeftRight {
+    0% {
+      transform: translateY(0) skewY(-15deg); /* Initial position with skew */
+    }
+    50% {
+      transform: translateY(-20px) skewY(-15deg); /* Skew with upward movement */
+    }
+    100% {
+      transform: translateY(0) skewY(-15deg); /* Back to original position with skew */
+    }
+}
+
+@keyframes skewRightLeft {
+    0% {
+      transform: translateY(0) skewY(15deg); /* Initial position with skew */
+    }
+    50% {
+      transform: translateY(-20px) skewY(15deg); /* Skew with upward movement */
+    }
+    100% {
+      transform: translateY(0) skewY(15deg); /* Back to original position with skew */
+    }
+}
+
+
+/* chi tiet san pham */
+
+body {
+    background-color: #fdf1ec;
+}
+
+.wrapper {
+    height: 500px;
+    width: 700px;
+    margin: 50px auto;
+    border-radius: 7px 7px 7px 7px;
+    -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+    float: left;
+    height: 100%;    
+    width: 340px;
+    position: relative;
+    background: #FFFFFF; 
+}
+
+.product-img img {
+    border-radius: 7px 0 0 7px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+.product-info {
+    float: left;
+    height: 500px;
+    width: 360px;
+    border-radius: 0 7px 10px 7px;
+    background-color: #ffffff;
+}
+
+.product-text {
+    height: 300px;
+    width: 327px;
+}
+
+.product-text h1 {
+    margin: 0 0 0 38px;
+    padding-top: 52px;
+    font-size: 34px;
+    color: #474747;
+}
+
+.product-text h1,
+.product-price-btn p {
+    font-family: 'Bentham', serif;
+}
+
+.product-text h2 {
+    margin: 0 0 47px 38px;
+    font-size: 13px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #d2d2d2;
+    letter-spacing: 0.2em;
+}
+
+.product-text p {
+    height: 125px;
+    margin: 0 10px 0 38px;
+    font-family: 'Playfair Display', serif;
+    color: #8d8d8d;
+    line-height: 1.7em;
+    font-size: 15px;
+    font-weight: lighter;
+    overflow: hidden;
+}
+
+.product-price-btn {
+    height: 103px;
+    width: 327px;
+    margin-top: 90px;
+    justify-content: space-between;
+
+    position: relative;
+}
+
+.product-price-btn p {
+    display: inline-block;
+    position: absolute;
+    top: -13px;
+    height: 50px;
+    font-family: 'Trocchi', serif;
+    margin: 0 0 0 50px;
+    top : 2px;
+    font-size: 28px;
+    font-weight: lighter;
+    color: #474747;
+}
+
+span {
+    display: inline-block;
+    height: 50px;
+    font-family: 'Suranna', serif;
+    font-size: 30px;
+}
+
+.product-price-btn button {
+    display: inline-block;
+    height: 50px;
+    width: 150px;
+    margin: 0 40px 0 110px;
+    box-sizing: border-box;
+    border: transparent;
+    border-radius: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+    background-color: #9cebd5;
+    cursor: pointer;
+    outline: none; 
+    flex: 1;
+
+}
+
+.product-price-btn button:hover {
+    background-color: #79b0a1;
+}
+
+/* products */
+
+.caddie {
+	position: relative;
+	display: inline-block;
+	width: 20px;
+	height: 17px;
+	vertical-align: -6px;
+	margin-right: 10px;
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition-property: -webkit-transform;
+	transition-property: -webkit-transform;
+	-o-transition-property: transform;
+	transition-property: transform;
+	transition-property: transform, -webkit-transform;
+	-webkit-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+.tapis-roulant .caddie {
+	height: 0;
+	line-height: 0;
+	overflow: hidden;
+	font-size: 0;
+	-webkit-transform: scale(0);
+	-ms-transform: scale(0);
+	transform: scale(0);
+}
+
+.caddie__body {
+	width: 92%;
+	height: 60%;
+	background: #edefff;
+	-webkit-transform: skew(-6deg);
+	-ms-transform: skew(-6deg);
+	transform: skew(-6deg);
+	position: absolute;
+	top: 0;
+	right: 0px;
+	border-radius: 2px;
+	border: 1px solid black;
+	border-left: none;
+}
+
+.caddie__body-left {
+	position: absolute;
+	background-color: #ced5ff;
+	left: -1%;
+	top: 1%;
+	width: 84%;
+	height: 60%;
+	border-left: 1px solid black;
+	border-radius: 2px;
+	border-top-left-radius: 8%;
+	border-top: 1px solid black;
+	border-top-right-radius: 0;
+}
+
+.caddie__top {
+	position: absolute;
+	top: -23%;
+	left: -2.5%;
+	width: 2px;
+	height: 27%;
+	-webkit-transform: skew(19deg);
+	-ms-transform: skew(19deg);
+	transform: skew(19deg);
+	background-color: black;
+}
+
+.caddie__top-support {
+	position: absolute;
+	top: -30%;
+	left: -12.5%;
+	background-color: #757575;
+	width: 4px;
+	height: 2px;
+	border-radius: 10px;
+	z-index: 2;
+}
+
+.caddie__trou {
+	width: 17px;
+	height: 1px;
+	background-color: #7f8dd8;
+	border-radius: 10px;
+	position: absolute;
+	top: 4px;
+	left: 7%;
+	z-index: 9;
+}
+
+.caddie__trou2 {
+	width: 11px;
+	height: 1px;
+	background-color: #7f8dd8;
+	border-radius: 10px;
+	position: absolute;
+	top: 9px;
+	left: 18%;
+	z-index: 9;
+}
+
+.caddie__trou3 {
+	width: 11px;
+	height: 1px;
+	background-color: #7f8dd8;
+	border-radius: 10px;
+	position: absolute;
+	top: 6px;
+	left: 18%;
+	z-index: 9;
+}
+
+.caddie__roue {
+	position: absolute;
+	bottom: -1px;
+	left: 2px;
+	width: 3px;
+	height: 3px;
+	background-color: #808080;
+	border-radius: 100%;
+	border: 1px solid black;
+}
+
+.caddie__roue2 {
+	position: absolute;
+	bottom: -1px;
+	left: 11px;
+	width: 3px;
+	height: 3px;
+	background-color: #808080;
+	border-radius: 100%;
+	border: 1px solid black;
 }

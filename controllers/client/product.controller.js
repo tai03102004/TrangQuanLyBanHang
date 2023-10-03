@@ -32,8 +32,9 @@ module.exports.detail = async(req,res) =>{
             pageTitle: "Chi tiết sản phẩm",
             product: product
         });
+
     }
     catch(error){
-        res.redirect(`/`);
+        res.redirect("/");
     }
 }

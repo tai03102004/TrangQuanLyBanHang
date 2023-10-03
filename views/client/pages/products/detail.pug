@@ -1,29 +1,77 @@
 extends ../../layouts/defaultProduct.pug
+
 block main 
-    .container.my-3
-        .row
-            .col-12
-                if (product.title)
-                    h1(class="mb-4") #{product.title}
-
-                if (product.price)
-                    div(class="mb-4") Giá: <b>#{product.price}$</b>
-
-                if (product.discountPercentage)
-                    div(class="mb-4") Giảm giá: <b>#{product.discountPercentage}%</b>
-
-                if (product.stock)
-                    div(class="mb-4") Còn lại: <b>#{product.stock}</b>
-
-                if (product.thumbnail)
+    body
+        .wrapper
+            .product-img
+                if product && product.thumbnail
                     div(class="mb-4")
-                    img(
-                    src=product.thumbnail
-                    style="width: 100px"
-                    )
+                        img(
+                            src=product.thumbnail
+                        )
+            .product-info
+                .product-text
+                    if product
+                        if product.title
+                            h1(class="mb-4") #{product.title}
+                            h2 by studio and friends
 
-                if (product.position)
-                    div(class="mb-4") Vị trí: <b>#{product.position}</b>
+                    .product-price-btn
+                        if product && product.price
+                            p
+                                span #{product.price}
+                                | $
+                        
+                            .container
+                                button
+                                    span
+                                        .caddie
+                                            .caddie__top-support
+                                            .caddie__top
+                                            .caddie__body
+                                            .caddie__trou
+                                            .caddie__trou2
+                                            .caddie__body-left
+                                            .caddie__roue
+                                            .caddie__roue2
+                                            .caddie__trou3
+                                    div
+                                        div
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                            i
+                                        div
+                                            div
+                                            div
+                                        div
+                                            div
+                                                div
+                                                div
+                                        div
+                                            div #{product.price}
+                                        div
+                                            div Canceled
+                            button(style="margin-top: 15px") buy now
 
-                if (product.description)
-                    div(class="mb-4") #{product.description}
