@@ -22,7 +22,8 @@ module.exports.index = async(req,res) =>{
 module.exports.detail = async(req,res) =>{
     try{
         const slug = req.params.slug;
-
+        // const id = req.params.title;
+        // console.log(id);
         const product = await Product.findOne({
             slug: slug,
             deleted:false,

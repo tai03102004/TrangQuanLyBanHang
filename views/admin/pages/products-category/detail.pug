@@ -1,0 +1,34 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+block main
+    +alert-success(5000)
+    +alert-error(5000)
+    .container
+        .grid.second-nav
+            .column-xs-12
+                nav
+                    ol.breadcrumb-list
+                        li.breadcrumb-item
+                            a(href=`/${prefixAdmin}/index`) Trang chủ
+                        li.breadcrumb-item
+                            a(href=`/${prefixAdmin}/products-category`) Danh mục sản phẩm
+                        li.breadcrumb-item.active Chi tiết sản phẩm
+
+    .product
+        .product-image
+            img(src=product.thumbnail, alt="image",width="200px")
+        .product-info
+            if (product.title)
+                h1(style="font-size: 30px") #{product.title}
+            if (product.status)
+                div(class="mb-4")
+                    span Trạng thái:
+                    if (product.status === "active")
+                        span(class="badge badge-success", id="product-active") Hoạt động
+                    else
+                        span(class="badge badge-danger", id="product-inactive") Dừng hoạt động
+            if (product.position)
+                div(class="mb-4", id="product-position") Vị trí: <b>#{product.position}</b>
+            if (product.description)
+                div(class="description")
+                    p(style="color:grey") !{product.description}

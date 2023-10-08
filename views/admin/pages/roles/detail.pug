@@ -1,0 +1,33 @@
+extends ../../layouts/default.pug
+
+block main
+  h1(class="mb-4") Chi tiết nhóm quyền
+
+  form(
+    action=`/${prefixAdmin}/roles/detail`
+    method="POST"
+  )
+  style.
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+
+  table
+    tr
+      th Tiêu đề 
+      th Mô tả
+    tr
+      td #{records.title}
+      td #{records.description}
+
+    

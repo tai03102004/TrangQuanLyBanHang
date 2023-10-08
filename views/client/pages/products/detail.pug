@@ -2,76 +2,23 @@ extends ../../layouts/defaultProduct.pug
 
 block main 
     body
-        .wrapper
-            .product-img
-                if product && product.thumbnail
-                    div(class="mb-4")
+        div(class="container")
+            div(class="title") PRODUCT DETAIL 
+            div(class="product-frame")
+                div(class="detail")
+                    div(class="image") 
                         img(
+                            style="width: 300px;"
                             src=product.thumbnail
                         )
-            .product-info
-                .product-text
-                    if product
-                        if product.title
-                            h1(class="mb-4") #{product.title}
-                            h2 by studio and friends
-
-                    .product-price-btn
-                        if product && product.price
-                            p
-                                span #{product.price}
-                                | $
-                        
-                            .container
-                                button
-                                    span
-                                        .caddie
-                                            .caddie__top-support
-                                            .caddie__top
-                                            .caddie__body
-                                            .caddie__trou
-                                            .caddie__trou2
-                                            .caddie__body-left
-                                            .caddie__roue
-                                            .caddie__roue2
-                                            .caddie__trou3
-                                    div
-                                        div
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                            i
-                                        div
-                                            div
-                                            div
-                                        div
-                                            div
-                                                div
-                                                div
-                                        div
-                                            div #{product.price}
-                                        div
-                                            div Canceled
-                            button(style="margin-top: 15px") buy now
-
+                    div(class="content")
+                        h1(class="name",style="font-size: 36px") #{product.title}
+                        div(class="price") 
+                        span(style="font-size: 28px; color: #007f5f") $#{product.price} 
+                        div(class="buttons")
+                            button.checkout-button Check Out
+                            button.add-to-cart-button    
+                                | Add To Cart
+                                i(class="fa-solid fa-cart-shopping")
+                        div(class="description",style="font-size:18px;color:#004d40") #{product.description} 
+            div(class="title") SIMILAR PRODUCT

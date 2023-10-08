@@ -6,8 +6,9 @@ const router = express.Router();
 // const storageMulterHelper = require("../../helper/storageMulter");
 // const storage = storageMulterHelper();
 
-
+// upload()
 const upload = multer();
+
 const controller = require("../../controllers/admin/product.controller");
 
 const validate = require("../../validates/admin/product.validate");
@@ -23,9 +24,9 @@ router.get("/create", controller.create);
 
 router.post(
     "/create", 
-    upload.single("thumbnail"),
-    uploadCloud.upload,
-    validate.createPost,
+    upload.single("thumbnail"), // upload ảnh
+    uploadCloud.upload, // đưa ảnh lên cloudinary
+    validate.createPost, // phù hợp với tiêu đề 
     controller.createPost
 );
 // sửa

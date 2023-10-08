@@ -5,6 +5,11 @@ mongoose.plugin(slug); // để tạo đường dẫn sau dấu / đẹp hơn tr
 const productSchema = new mongoose.Schema(
     {
         title: String,
+        // vì khi ta create trong csdl thì cái name = product_category_id => phải thêm dữ liệu
+        product_category_id:{
+            type:String,
+            default:""
+        },
         description: String,
         price: Number,
         discountPercentage: Number,

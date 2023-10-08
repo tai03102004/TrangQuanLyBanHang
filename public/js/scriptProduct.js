@@ -1,48 +1,56 @@
-// product
+// // product
 
-const button = document.querySelector("button");
-let timer;
-let timer2;
-const audio = new Audio("https://lasonotheque.org/UPLOAD/mp3/1417.mp3");
+// // find this product
 
-button.addEventListener("click", function () {
-if (!this.classList.contains("added")) {
-    clearTimeout(timer);
-    clearTimeout(timer2);
+// function showDetail(){
+//     let detail = document.querySelector('.detail');
+//     let productId = new URLSearchParams(window.location.search).get('slug');
+//     let thisProduct = product.filter(value =>{
+//         return value.id = productId;
+//     })[0];
+
+//     // if there is no product has id = productId
+//     // => return to home page
+//     if (!thisProduct){
+//         window.location.href = "/";
+//     }
+
+//     // and if has , add data this product in html
+//     detail.querySelector('.image img').src = thisProduct.image;
+//     detail.querySelector('.name').src = thisProduct.image;
+//     detail.querySelector('.price').src = thisProduct.image;
+//     detail.querySelector('.description').src = thisProduct.description;
+
+//     // add data product similar
+
+//     // show all products
+//     let listProduct = document.querySelectorAll('.listProduct');
+//     (product.filter(value=>value.id != productId))
+//     .forEach(product=>{
+//         let newProduct = document.createElement('a');
+//         newProduct.href = '/detail?slug=' + product.id;
+//         newProduct.innerHTML = `
+//             <img src=${product.image}">
+//             <h2>${product.name}<h2>
+//             <div class="price">${product.price}</div>
+//         `;
+//         listProduct.appendChild(newProduct);
+//     })
+// }
+
+// search product
+
+function searchToggle(obj, evt){
+    var container = $(obj).closest('.search-wrapper');
+        if(!container.hasClass('active')){
+            container.addClass('active');
+            evt.preventDefault();
+        }
+        else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+            container.removeClass('active');
+            // clear input
+            container.find('.search-input').val('');
+        }
 }
 
-const tapisRoulantDiv4 = document.querySelector(
-    ".tapis-roulant>div:nth-child(4)>div"
-);
-const tapisRoulantDiv2 = document.querySelector(
-    ".tapis-roulant>div:nth-child(2)>div"
-);
-
-if (this.classList.contains("tapis-roulant") && !this.classList.contains("added")) {
-    if (tapisRoulantDiv4) tapisRoulantDiv4.style.animationPlayState = "paused";
-    if (tapisRoulantDiv2) tapisRoulantDiv2.style.animationPlayState = "paused";
-    this.style.pointerEvents = "none";
-    this.classList.add("canceled");
-    setTimeout(() => {
-		this.style.pointerEvents = "initial";
-		this.classList.remove("tapis-roulant");
-		this.classList.remove("canceled");
-    }, 1000);
-}
-
-if (!this.classList.contains("tapis-roulant")) {
-    this.classList.add("tapis-roulant");
-    if (tapisRoulantDiv4) tapisRoulantDiv4.style.animationPlayState = "running";
-    if (tapisRoulantDiv2) tapisRoulantDiv2.style.animationPlayState = "running";
-    timer = setTimeout(() => {
-		this.classList.add("added");
-		audio.play();
-		this.style.pointerEvents = "none";
-		timer2 = setTimeout(() => {
-			this.classList.remove("added");
-			this.classList.remove("tapis-roulant");
-			this.style.pointerEvents = "initial";
-		}, 1600);
-    }, 1400);
-}
-});
+// end search product

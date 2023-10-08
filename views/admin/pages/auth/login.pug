@@ -1,0 +1,61 @@
+extends ../../layouts/auth.pug
+include ../../mixins/alert.pug
+
+block main
+  +alert-error(5000)
+  body
+    // Animated Wave Background
+    .ocean
+      .wave
+      .wave
+
+    // Log In Form Section
+    section
+      .container#container
+
+        .form-container.sign-in-container
+          form(
+            action=`/${prefixAdmin}/auth/login`
+            method="POST"
+          )
+            h1 Sign in
+            .social-container
+              a(href='https://Github.com/tai03102004', target='_blank', class='social')
+                i.fab.fa-github
+              a(href='https://www.facebook.com/profile.php?id=100024361560751', target='_blank', class='social')
+                i.fab.fa-facebook
+              a(href='dinhductai2004@gmail.com', target='_blank', class='social')
+                i.fab.fa-google
+            span Or sign in using E-Mail Address
+            label
+              input(
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                required
+                placeholder="Email"
+              )
+            label
+              input(
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                required
+                placeholder="Password"
+              )
+            a(href='#') Forgot your password?
+            button Sign In
+
+        .overlay-container
+          .overlay
+            .overlay-panel.overlay-left
+              h1 Log in
+              p Sign in here if you already have an account
+              button.ghost.mt-5#signIn Sign In
+
+            .overlay-panel.overlay-right
+              h1 Log in!
+              p If you have an account, please log in here
+      
