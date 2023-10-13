@@ -1,8 +1,11 @@
-extends ../../layouts/auth.pug
+extends ../../layouts/auth(login).pug
+include ../../mixins/box-head.pug
 include ../../mixins/alert.pug
+
 
 block main
   +alert-error(5000)
+  +alert-success(5000)
   body
     // Animated Wave Background
     .ocean
@@ -12,34 +15,14 @@ block main
     // Log In Form Section
     section
       .container#container
-        .form-container.sign-up-container
-          form(
-              action=`/${prefixAdmin}/auth/login`
-              method="POST"
-          )
-            h1 Sign Up
-            .social-container
-              a(href='https://Github.com/tai03102004', target='_blank', class='social')
-                i.fab.fa-github
-              a(href='https://www.facebook.com/profile.php?id=100024361560751', target='_blank', class='social')
-                i.fab.fa-codepen
-              a(href='dinhductai2004@gmail.com', target='_blank', class='social')
-                i.fab.fa-google
-            span Or use your Email for registration
-            label
-              input(type='text', placeholder='Name')
-            label
-              input(type='email', placeholder='Email')
-            label
-              input(type='password', placeholder='Password')
-            button(style='margin-top: 9px') Sign Up
 
         .form-container.sign-in-container
           form(
-            action=`/${prefixAdmin}/auth/login`
+            action=`/auth/login`
             method="POST"
           )
             h1 Sign in
+            div #{records.name}
             .social-container
               a(href='https://Github.com/tai03102004', target='_blank', class='social')
                 i.fab.fa-github
@@ -49,25 +32,19 @@ block main
                 i.fab.fa-google
             span Or sign in using E-Mail Address
             label
-              input(
-                type="email"
+              input(type="text" 
+                id="loginInput" 
                 class="form-control"
-                id="email"
-                name="email"
+                name="name_id"
                 required
-                placeholder="Email"
+                placeholder="Tên đăng nhập"
               )
-            label
-              input(
-                type="password"
-                class="form-control"
-                id="password"
-                name="password"
-                required
-                placeholder="Password"
-              )
+            label(for="password")
+              div(style="position: relative;")
+                input(type="password" class="form-control1" id="password" name="password" required placeholder="Password")
+                i(class="fa-solid fa-eye toggle-password")
             a(href='#') Forgot your password?
-            button Sign In
+            button.SignIn Sign In
 
         .overlay-container
           .overlay
@@ -80,3 +57,6 @@ block main
               h1 Create, Account!
               p Sign up if you still don't have an account
               button.ghost#signUp Sign Up
+              button.ghost#signUp(style="position: relative; top: 15px;")
+                a(href="/") Quay lại
+  script(src="/js/auth(login).js")

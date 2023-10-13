@@ -1,8 +1,4 @@
 /* Animated Wave Background Style  */
-html, body {
-    width: 100%;
-    height: 100%;
-}
 body {
     background:radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%);
     overflow: hidden;
@@ -98,9 +94,9 @@ a {
     position: relative;
     overflow: hidden;
     opacity: 85%;
-    width: 768px;
+    width: 850px;
     max-width: 100%;
-    min-height: 480px;
+    min-height: 700px;
     transition: 333ms;
 }
 
@@ -142,9 +138,10 @@ a {
     background: #eee;
     border: none;
     border-radius: 50px;
-    padding: 12px 15px;
-    margin: 8px 0;
+    padding: 9px 35px;
+    margin: 11px 0;
     width: 100%;
+    font-size: 16px;
 }
 .form-container input:hover {
     transform: scale(101%);
@@ -184,13 +181,13 @@ button.ghost {
     transition: all .6s ease-in-out;
 }
 
-.sign-in-container {
+.sign-up-container {
     left: 0;
     width: 50%;
     z-index: 2;
 }
 
-.sign-up-container {
+.sign-in-container {
     left: 0;
     width: 50%;
     z-index: 1;
@@ -245,7 +242,7 @@ button.ghost {
 }
 
 /* Move signin to right */
-.container.right-panel-active .sign-in-container {
+.container.right-panel-active .sign-up-container {
     transform: translateY(100%);
 }
 
@@ -255,7 +252,7 @@ button.ghost {
 }
 
 /* Bring signup over signin */
-.container.right-panel-active .sign-up-container {
+.container.right-panel-active .sign-in-container {
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
@@ -274,4 +271,33 @@ button.ghost {
 /* Same effect for right */
 .container.right-panel-active .overlay-right {
     transform: translateY(20%);
+}
+
+.overlay-container {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.overlay-container.fade-out {
+    opacity: 0;
+}
+    
+/* Định dạng biểu tượng con mắt */
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+#imageFile {
+    width: 70%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#avatarPreview {
+    max-width: 15%;
+    height: auto;
+    margin-left: 10px;
 }

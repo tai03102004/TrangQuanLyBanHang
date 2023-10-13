@@ -11,8 +11,10 @@ const uploadCloud = require("../../middlewares/admin/uploadCloud.middlewares");
 
 router.get("/login",controller.login);
 
+// đăng nhập
 router.post("/login",controller.loginPost);
 
+// đăng xuất
 router.get("/logout",controller.logout);
 
 module.exports = router;

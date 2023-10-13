@@ -1,0 +1,109 @@
+
+
+ul.dropdown {
+    position: relative;
+    justify-content: flex-end; /* Align to the right */
+    width: 100%;
+    height: 80%;
+    list-style: none;
+    z-index: 1000;
+}
+
+
+ul.dropdown li {
+    font-weight: bold;
+    width: 150px;
+    position: relative;
+    background: #dfcece;
+    height: 40px;
+    top : 6px;
+    z-index: 2
+}
+
+ul.dropdown a:hover {
+    color: #000;
+}
+
+ul.dropdown li a {
+    display: block;
+    padding: 6px 8px;
+    color: #34495e;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 200;
+}
+
+ul.dropdown li a:hover,
+ul.dropdown li a.hover {
+    background: #3498db;
+    position: relative;
+    color: #fff;
+}
+
+ul.dropdown ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0; /* Đặt vị trí bên phải */
+    width: 150px;
+    z-index: 2;
+}
+
+
+ul.dropdown ul li {
+    font-weight: normal;
+    background: #f6f6f6;
+    color: #000;
+    border-bottom: 1px solid #ccc;
+}
+
+ul.dropdown ul li a {
+    display: block;
+    color: #34495e !important;
+    background: #eee !important;
+}
+
+ul.dropdown ul li a:hover {
+    background: #3498db !important;
+    color: #fff !important;
+}
+
+.drop > a {
+    position: relative;
+}
+
+.drop > a:after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 30%;
+    border-left: 5px solid transparent;
+    border-top: 5px solid #333;
+    border-right: 5px solid transparent;
+    z-index: 2;
+}
+
+.drop > a:hover:after {
+    content: "";
+    border-left: 5px solid transparent;
+    border-top: 5px solid #fff;
+    border-right: 5px solid transparent;
+}
+
+/* Additional styles for user menu */
+.user-menu {
+    margin-left: auto; /* Push to the right */
+}
+
+.user-menu a {
+    color: #34495e;
+    text-decoration: none;
+    padding: 15px 10px;
+}
+
+.user-menu a:hover {
+    background: #dc5c8f;
+    color: #fff;
+}

@@ -26,9 +26,27 @@ const productSchema = new mongoose.Schema(
             type: Boolean, // true : product đã bị xoá , false : ko
             default: false, // mặc định tài liệu chưa bị xoá 
         },
-        deletedAt: Date, // ghi thời điểm xoá
+        // deletedAt: Date, // ghi thời điểm xoá
+        createBy:{
+            account_id : String, // id : Sản phẩm
+            createAt: {
+                type : Date,
+                default : Date.now // Chỉ lấy khi tạo sản phẩm
+            }
+        },
+        deleteBy:{
+            account_id : String, // id của tài khoản = id sản phẩm
+            deleteAt: Date // ngày xoá lưu vào database
+        },
+        // Lưu 1 mảng các sản phẩm 
+        updateBy :[
+            {
+                account_id : String,  // id người dùng
+                updateAt: Date  // ngày update
+            }
+        ]
     },
-    { timestamps: true } // nó sẽ tạo ra 2 trường (createdAt : time tạo product) , (updatedAt : thời gian cập nhật sản phẩm)
+    // { timestamps: true } // nó sẽ tạo ra 2 trường (createdAt : time tạo product) , (updatedAt : thời gian cập nhật sản phẩm)
 );
 // Định nghĩa model product (tên model , schema , tên collection)
 const Product = mongoose.model("Product", productSchema, "products");

@@ -1,0 +1,43 @@
+footer.section-footer
+    .container
+        div
+            h2.text-2.mb-1 The customer is very smart.
+            a(href="http://twitter.com")
+                i.fab.fa-twitter.fa-2x
+            a(href="http://facebook.com")
+                i.fab.fa-facebook.fa-2x
+            a(href="http://youtube.com")
+                i.fab.fa-youtube.fa-2x
+        div
+            h3 Company Info
+            ul
+                li
+                    a(href="/") All Products
+                li
+                    a(href="/") About Us
+                li
+                    a(href="/") Privacy Policy
+                li
+                    a(href="/") Terms of Service
+        div
+            h3 Blog Posts
+            ul
+                li
+                    a(href="/") Thank you very much.
+                li
+                    a(href="/") Thank you very much.
+                li
+                    a(href="/") Thank you very much.
+                li
+                    a(href="/") Thank you very much.
+        div
+            h3 Subscribe
+            p(style="color:black")
+                | The company itself is a very successful company.                        
+                form.mt-1(name="email-form", method="POST", data-netlify="true").email-form
+                    span.form-control-wrap
+                        input(type="email", name="email", id="email", size="40", class="form-control", placeholder="E-mail")
+                        div(id="error-message" class="error-message")
+
+                    button(type="submit", value="Submit", class="form-control submit")
+                        i.fas.fa-chevron-right

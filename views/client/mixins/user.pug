@@ -1,0 +1,29 @@
+mixin user()
+  .profile-menu
+    div
+      i.fa-solid.fa-pen
+      | Sửa hồ sơ
+    .menu-item
+      .menu-button(onclick="toggleProfileContent()")
+        i.fa-solid.fa-user
+        button Tài khoản của tôi
+
+      .sub-items
+        div(class="menu-item")
+          a(href="/account") Hồ sơ
+        div(class="menu-item")
+          a(href="#") Ngân hàng
+        div(class="menu-item")
+          a(href="#") Địa chỉ
+        div(class="menu-item")
+          a(href="#") Đổi mật khẩu
+        div(class="menu-item")
+          a(href="#") Cài đặt thông báo
+
+    div
+      i.fa-solid.fa-clipboard-list
+      | Đơn mua
+    div
+      i.fa-solid.fa-bell
+      | Thông báo
+  

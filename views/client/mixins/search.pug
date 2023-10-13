@@ -1,9 +1,7 @@
 mixin search()
-    .search-wrapper.active
-        .input-holder.active
-            input(type="text", class="search-input", placeholder="Tìm tên sản phẩm, các thương hiệu nổi tiếng")
-            button(class="search-icon", onclick="searchToggle(this, event)")
-                span
-        span.close.active(onclick="searchToggle(this, event)")
-            span
-            span
+    form#form-search
+        .input-group
+            input(type="text", placeholder="Nhập từ khóa", name="keyword", class="form-control")
+            button(type="click", class="btn btn-search")
+                i.fa.fa-search
+

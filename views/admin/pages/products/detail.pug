@@ -18,23 +18,24 @@ block main
         .product-image
             img(src=product.thumbnail, alt="image")
         .product-info
-            if (product.title)
-                h1(style="font-size: 30px") #{product.title}
-            if (product.price)
-                h2(style="font-size: 25px") Giá: <b>#{product.price}$</b>
-            if (product.discountPercentage)
-                div(class="mb-4", id="product-discountPercentage") Giảm giá: <b>#{product.discountPercentage}%</b>
-            if (product.stock)
-                div(class="mb-4", id="product-stock") Còn lại: <b>#{product.stock}</b>
-            if (product.status)
-                div(class="mb-4")
-                    span Trạng thái:
-                    if (product.status === "active")
-                        span(class="badge badge-success", id="product-active") Hoạt động
-                    else
-                        span(class="badge badge-danger", id="product-inactive") Dừng hoạt động
-            if (product.position)
-                div(class="mb-4", id="product-position") Vị trí: <b>#{product.position}</b>
-            if (product.description)
-                div(class="description")
-                    p(style="color:grey") !{product.description}
+            if(role.permissions.includes("products_view"))
+                if (product.title)
+                    h1(style="font-size: 30px") #{product.title}
+                if (product.price)
+                    h2(style="font-size: 25px") Giá: <b>#{product.price}$</b>
+                if (product.discountPercentage)
+                    div(class="mb-4", id="product-discountPercentage") Giảm giá: <b>#{product.discountPercentage}%</b>
+                if (product.stock)
+                    div(class="mb-4", id="product-stock") Còn lại: <b>#{product.stock}</b>
+                if (product.status)
+                    div(class="mb-4")
+                        span Trạng thái:
+                        if (product.status === "active")
+                            span(class="badge badge-success", id="product-active") Hoạt động
+                        else
+                            span(class="badge badge-danger", id="product-inactive") Dừng hoạt động
+                if (product.position)
+                    div(class="mb-4", id="product-position") Vị trí: <b>#{product.position}</b>
+                if (product.description)
+                    div(class="description")
+                        p(style="color:grey") !{product.description}

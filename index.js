@@ -5,7 +5,8 @@ const flash = require("express-flash");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 var path = require('path');
-
+// Chuẩn hoá tháng
+const moment = require("moment");
 
 //  Ẩn những file mình làm
 require("dotenv").config();
@@ -49,15 +50,20 @@ app.set('view engine', 'pug');
 const routeAdmin = require("./routes/admin/index.route");
 routeAdmin(app);
 
+// route
+const route = require("./routes/client/index.route"); // Nhúng router
+route(app); // truyền app vào ứng dụng express
+
 // người dùng có thể thay đổi /admin
 const systemConfig = require("./config/system");
 // Variables
 app.locals.prefixAdmin = systemConfig.prefixAdmin;
 // End Variables
 
-// route
-const route = require("./routes/client/index.route"); // Nhúng router
-route(app); // truyền app vào ứng dụng express
+// Moment
+app.locals.moment = moment;
+
+// End Moment
 
 // port
 

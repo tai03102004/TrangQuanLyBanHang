@@ -9,18 +9,20 @@ html
         link(rel="website icon" ,type = "png" ,href ="https://inkythuatso.com/uploads/thumbnails/800/2021/11/logo-bmw-inkythuatso-4-01-11-10-00-03.jpg")
 
     body
+            
+        if (role.permissions.length > 0)
 
-        include ../partials/header.pug
+            include ../partials/header.pug
 
-        .body   
+            .body   
 
-            include ../partials/sider.pug
-            .main
-                block main
+                include ../partials/sider.pug
+                .main
+                    block main
 
         script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js") 
         script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js")
         script(src= "/tinymce/tinymce.min.js")
         script(src="/admin/js/my-tinymce-config.js")
-
+        
 

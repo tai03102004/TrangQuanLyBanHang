@@ -40,6 +40,7 @@ module.exports.create = async (req, res) => {
 
 module.exports.createPost = async (req, res) => {
   // password mình nhập vào sẽ random 31 ký tự (dù mình nhập có 5-6 từ)
+
   req.body.password = md5(req.body.password);
 
   console.log(req.body);
@@ -48,7 +49,7 @@ module.exports.createPost = async (req, res) => {
 
   await record.save();
 
-  res.redirect(`/${systemConfig.prefixAdmin}/accounts}`);
+  res.redirect(`/${systemConfig.prefixAdmin}/accounts`);
 
 }
 
@@ -77,7 +78,7 @@ module.exports.edit = async (req, res) => {
   }
 };
 
-// [GET] /admin/account/createPost
+// [GET] /admin/account/editPatch 
 
 module.exports.editPatch = async (req, res) => {
   

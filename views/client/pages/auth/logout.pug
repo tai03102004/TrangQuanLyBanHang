@@ -1,0 +1,95 @@
+extends ../../layouts/auth(logout).pug
+include ../../mixins/box-head.pug
+include ../../mixins/alert.pug
+
+
+block main
+  +alert-error(5000)
+  +alert-success(5000)
+  body
+    // Animated Wave Background
+    .ocean
+      .wave
+      .wave
+    // Log In Form Section
+    section
+      .container#container
+        .form-container.sign-up-container
+          form(
+              action=`/auth/logout`
+              method="POST"
+          )
+            h1 Sign Up
+            .social-container
+              a(href='https://Github.com/tai03102004', target='_blank', class='social')
+                i.fab.fa-github
+              a(href='https://www.facebook.com/profile.php?id=100024361560751', target='_blank', class='social')
+                i.fab.fa-codepen
+              a(href='dinhductai2004@gmail.com', target='_blank', class='social')
+                i.fab.fa-google
+            span Or use your Email for registration
+            label
+              input(
+                type='text', 
+                placeholder='Name'
+                id ='name'
+                required
+                class= "form-control"
+                name = "name"
+              )
+            label
+              input(
+                type='text', 
+                placeholder='Tên đăng nhập'
+                id ='nameId'
+                required
+                class= "form-control"
+                name = "name_id"
+              )
+            div(style="position: relative;")
+              input(type="password" class="form-control1" id="password" name="password" required placeholder="Password")
+              i(class="fa-solid fa-eye toggle-password")
+            label
+              input(
+                type='text', 
+                placeholder='Số điện thoại'
+                id ='phone'
+                required
+                class= "form-control"
+                name = "phone"
+              )
+            label
+              input(
+                type='text', 
+                placeholder='Email'
+                id ='email'
+                required
+                class= "form-control"
+                name = "email"
+                onchange="chooseFile(this)"
+              )
+            label
+              input(type="file" id="imageFile" accept="image/gif,image/jpeg,image/png" placeholder="Choose an image" onchange="previewImage(event)")
+              img(id="avatarPreview" name="avatar" src="" alt="Avatar Preview")
+
+            button(
+              style='margin-top: 9px'
+              id = "buttonClick"
+            ) Sign Up
+        .overlay-container
+          .overlay
+            .overlay-panel.overlay-right
+              h1 Log in
+              p Sign in here if you already have an account
+              button.ghost.mt-5#signIn Sign In
+
+            .overlay-panel.overlay-left
+              h1 Create, Account!
+              p Sign up if you still don't have an account
+              button.ghost#signUp 
+                form(
+                  action=`/auth/logout`
+                  method="POST"
+                ) Sign Up
+  script(src="/js/auth(logout).js")
+  

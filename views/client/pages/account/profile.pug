@@ -1,0 +1,65 @@
+extends ../../layouts/defaultProduct.pug
+include ../../mixins/alert.pug
+include ../../mixins/user.pug
+
+block main
+  +alert-error(5000)
+  
+    +user()
+    .edit-right
+      .sub-items
+        h2(class="mb-4") Hồ Sơ Của Tôi
+        div(class="form-group")
+          label(for="name_id") Tên đăng nhập
+          input(
+            type="text"
+            class="form-control"
+            id="name_id"
+            name="name_id"
+            value=account.name_id
+          )
+          
+        div(class="form-group")
+          label(for="name") Tên
+          input(
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            value=account.name
+          )
+        
+        div(class="form-group")
+          label(for="email") Email
+          input(
+            type="text"
+            class="form-control"
+            id="email"
+            name="email"
+            value=account.email
+          )
+
+        div(class="form-group")
+          label(for="phone") Số điện thoại
+          input(
+            type="text"
+            class="form-control"
+            id="phone"
+            name="phone"
+            value=account.phone
+          )
+        
+        div(class="form-group")
+          button(
+            type="submit"
+            class="btn btn-primary"
+          ) Cập nhật
+
+  form(
+    action="/account/profile"
+    method="PATCH"
+  )
+
+  link(rel="stylesheet", href="/css/user/style.css")
+  script(src="/js/auth.js")
+
