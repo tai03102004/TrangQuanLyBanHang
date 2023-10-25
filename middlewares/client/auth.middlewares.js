@@ -8,16 +8,17 @@ const Auth = require("../../models/auth.model");
 
 module.exports.requireAuth = async (req,res,next) =>{
     // console.log(req.cookies.token);
-    
+
     const user = await Auth.findOne({
-        token : req.cookies.token,
-    })
-    // console.log(user);
+        tokenUser : req.cookies.tokenUser,
+        deleted: false
+    }).select("-password");
+    // để dùng user toàn cục
+    if(user) {
+        res.locals.user = user;
+    }
     
     // để lấy id của người phân quyền từ đó có thể cho người đó phù hợp với các lựa chọn
-
-    // để dùng user toàn cục
-    res.locals.user = user;
 
     next();
 }

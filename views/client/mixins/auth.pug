@@ -1,23 +1,24 @@
 mixin auth(user)
     .inner-menu 
-        ul.nav(style="left:10px")
-            if (user)
-                nav(style="font-size: 18px")
-                    ul.dropdown
-                        li.drop
-                            a(href="/") #{user.name_id}
-                            ul.sub_menu
-                                li
-                                    a(href="account") Tài khoản
-                                li
-                                    a(href="#") Đơn mua
-                                li
-                                    a(href="auth/signout") Đăng xuất
+        ul.nav()
+            if (user) 
+                ul.dropdown
+                    li.drop
+                        a(href="/auth/info") #{user.name_id}
+
+                        ul.sub_menu
+                            li
+                                a(href="account") Tài khoản
+                            li
+                                a(href="#") Đơn mua
+                            li
+                                a(href="auth/signout") Đăng xuất
             else 
                 li(style="font-size: 14px")
                     a(href="auth/login") Đăng nhập
                 li(style="font-size: 14px") 
                     a(href="auth/logout") Đăng ký
+                    
     link(rel="stylesheet", href="/css/auth/style(auth).css")
     script(src="https://code.jquery.com/jquery-3.6.0.min.js")
     script(src="/js/auth.js")

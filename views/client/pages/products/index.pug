@@ -1,48 +1,15 @@
 extends ../../layouts/defaultProduct.pug
 include ../../mixins/box-head.pug
 include ../../mixins/search.pug
+include ../../mixins/product-layout.pug
 
 block main 
     .container.my-3
         .row
-        .col-12
-            +box-head("Danh sách sản phẩm")
-        .row
-            each item in product
-                .col-4.mb-3
-                    .product-item
-                        .inner-image
-                            img(
-                                src=item.thumbnail
-                                alt=item.title
-                            )
-                        .inner-content
-                            h3.inner-title 
-                                a(href=`/products/detail/${item.slug}`) #{item.title}
-                            style.
+            .col-12
+                +box-head(pageTitle)
+                
+        +product-grid(products)
 
-                                .floating-dollar {
-                                    display: inline-block;
-                                    animation: floating 0.8s infinite; /* Lặp lại hiệu ứng vô hạn */
-                                }
-
-                                .floating-dollar-symbol {
-                                    font-size: 0.8em; /* Đặt kích thước nhỏ hơn */
-                                    position: relative;
-                                    top: -0.5em; /* Đặt vị trí lên trên */
-                                }
-
-                            div.inner-price-container
-                                if item.discountPercentage > 0
-                                    div.inner-price-new
-                                        | #{item.priceNew}
-                                        span.floating-dollar-symbol $
-                                        div.inner-discount
-                                            | -#{item.discountPercentage}%
-                                else
-                                    div.inner-price-new
-                                        .floating-dollar
-                                            | #{item.priceNew}
-                                            span.floating-dollar-symbol $
 
 

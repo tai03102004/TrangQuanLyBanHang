@@ -1,16 +1,15 @@
-// để thằng nào cx dùng đc các cha chứa các con
+// Lấy ra danh sách sản phẩm cả cha với con
+const productCategory = require("../../models/product-category.model");
 
-const ProductCategory = require("../../models/product-category.model");
-
-// in ra thằng cha
-const createTree= require("../../helper/createTree");
+const createTree = require("../../helper/createTree");
 
 module.exports.category = async (req,res,next) =>{
-    const categoryProduct = await ProductCategory.find({
-        deleted:false,
+    const categoryProduct = await productCategory.find({
+        deleted: false,
     })
-    const newProductCategory = createTree(categoryProduct);
-    // sử dụng 1 biến layoutCategoryProducts làm biến toàn cục lưu cả thằng cha và con
+    // Lấy ra thằng cha và con
+    const newProductCategory =  createTree(categoryProduct);
+
     res.locals.layoutCategoryProducts = newProductCategory;
 
     next();

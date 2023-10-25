@@ -16,6 +16,7 @@ const productSchema = new mongoose.Schema(
         stock: Number,
         thumbnail: String,
         status: String,
+        featured: String, // sản phẩm nổi bật ; 1 : nổi bật 
         position: Number,
         slug: {
             type: String, // xác định kiểu của slug là chuỗi

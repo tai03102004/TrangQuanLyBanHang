@@ -9,7 +9,6 @@ ul.dropdown {
     z-index: 1000;
 }
 
-
 ul.dropdown li {
     font-weight: bold;
     width: 150px;
@@ -106,4 +105,15 @@ ul.dropdown ul li a:hover {
 .user-menu a:hover {
     background: #dc5c8f;
     color: #fff;
+}
+
+/* Giỏ hàng*/
+.custom-button {
+    background: none;
+    cursor: pointer;
+    font-size: 16px; /* Adjust the font size as needed */
+    border: none;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 30px;
 }

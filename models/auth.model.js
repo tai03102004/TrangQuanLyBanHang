@@ -8,12 +8,16 @@ const authSchema = new mongoose.Schema(
     name_id: String, // Tên đăng nhập
     email : String,
     password: String,
-    token: {
+    tokenUser: {
         type : String,
         default: generate.generateRandomString(31),
     }, // String random duy nhất để trả về fontend lưu trong Cookie
     phone: String,
     avatar: String,
+    status : {
+        type : String,
+        default : "active",
+    },
     deleted: {
         type: Boolean,
         default: false,

@@ -68,6 +68,11 @@ app.locals.moment = moment;
 // port
 
 const port = process.env.PORT;
+app.get("*", (req, res) => {
+    res.render(("client/pages/errors/404.pug"),{
+        pageTitle: "404 Not Found",
+    })
+});
 
 app.listen(port ,()=>{
     console.log(`listening on port ${port}`);

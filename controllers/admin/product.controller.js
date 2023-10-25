@@ -3,9 +3,13 @@ const filterStatusHelper = require("../../helper/filterStatus.js");
 const searchHelper = require("../../helper/search");
 const paginationHelper = require("../../helper/pagination");
 const systemConfig = require("../../config/system");
-// trả về thành phần cha-con
+
+// trang danh sách sản phẩm bên admin trả về client
 const ProductCategory = require("../../models/product-category.model");
+
+// trả về thành phần cha-con
 const createTree = require("../../helper/createTree");
+
 
 const Account = require("../../models/account.model");
 
@@ -76,13 +80,13 @@ module.exports.index = async (req, res) => {
                 // Thêm accountFullName để in ra tên và ngày đã cập nhật
             }
             // 
-            const userUpdatedId1 = Product.updateBy;
+            // const userUpdatedId1 = Product.updateBy;
 
-            console.log(userUpdatedId1);
+            // console.log(userUpdatedId1);
 
             const userUpdatedId = Product.updateBy.slice(-1)[0]; // Lấy ra phần tử cuối cùng và account_id 
 
-            console.log(userUpdatedId);
+            // console.log(userUpdatedId);
             if (userUpdatedId){
                 // Tìm kiếm duy nhât id xong mình sẽ gán tên vào
                 const userUpdated = await Account.findOne({

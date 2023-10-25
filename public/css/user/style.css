@@ -1,53 +1,48 @@
-h2 {
-    font-size: 21px; /* Adjust the font size as needed */
-    margin-left:20px;
-}
-.edit {
-    border: 2px solid #f1f1f1; 
-    background-color: #f5e5e2	; 
-    width: 60%;
-    padding: 20px; 
+.user-info-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #ece2ee;
+    margin-bottom: 20px;
 }
 
+.user-info h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
 
-.form-group {
-    clear: both;
-    width: 65%;
+.user-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
-    margin-left: 80px;
 }
 
-.label {
-    float: left;
-    width: 30%;
-    padding-top: 5px;
+.user-info-label {
+    font-weight: bold;
+    text-align: right;
+    width: 150px;
 }
 
-.label, .input {
-    margin-left: 10px;
+.user-info-input input {
+    flex: 1;
+    padding: 5px;
 }
 
-
-/* user */
-.sub-items{
-    display: none;
-    margin-left: 20px;
-}
-.sub-items.active{
-    display: block;
+.user-info-value {
+    padding: 5px;
+    padding-right: 450px;
 }
 
-
-.menu-button button {
-    border: none;
-    background: none;
-    padding: 0;
-    font-size: inherit;
-    color: inherit;
-    cursor: pointer;
-    text-align: left;
+.user-info-input label {
+    font-weight: bold;
+    margin-right: 10px;
+    width: 150px;
+    text-align: right;
 }
 
-.menu-button button:focus {
-    outline: none;
+.user-info-button {
+    margin-top: 20px;
+    text-align: center;
 }

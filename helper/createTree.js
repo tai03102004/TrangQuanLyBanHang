@@ -14,7 +14,6 @@ function createTree(arr, parentId = "") {
             const children = createTree(arr, item.id); // gọi lại
             if (children.length > 0) {
                 newItem.children = children; // các thằng con
-                console.log(newItem.children);
             }
             tree.push(newItem);
         }

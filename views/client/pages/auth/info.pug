@@ -1,0 +1,36 @@
+extends ../../layouts/defaultProduct.pug
+include ../../mixins/box-head.pug
+
+block main
+  .container.my-3
+    .row
+      .col-12
+        +box-head("Thông tin tài khoản")
+        div(class="user-info")
+          .edit-right
+            .sub-items
+              .user-info-box
+                h2(class="mb-4") Hồ Sơ Của Tôi
+                .user-info-row
+                  .user-info-input
+                    label(for="username") Tên đăng nhập :
+                    input(type="text" id="username_id" name="username_id" value= `${user.name_id}`)
+                .user-info-row
+                  .user-info-input
+                    label(for="username") Họ và Tên:
+                    input(type="text" id="username" name="username" value= `${user.name}`)
+                
+                .user-info-row
+                  .user-info-label Email:
+                  .user-info-value #{user.email}
+
+                .user-info-row
+                  .user-info-label Số điện thoại:
+                  .user-info-value #{user.phone}
+
+              .user-info-button
+                button(
+                  type="submit"
+                  class="btn btn-primary"
+                ) Cập nhật
+  link(rel="stylesheet", href="/css/user/style.css")

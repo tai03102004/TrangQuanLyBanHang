@@ -1,7 +1,10 @@
 mixin search()
-    form#form-search
-        .input-group
-            input(type="text", placeholder="Nhập từ khóa", name="keyword", class="form-control")
-            button(type="click", class="btn btn-search")
+    form(
+        action=`/search`
+        method="GET"
+    )
+        .form-group(style="align-items: center;display: flex;")
+            input(type="text", placeholder="Nhập từ khóa...", name="keyword", class="form-control",value=keyword)
+            button(type="submit", class="btn btn-search" )
                 i.fa.fa-search
 
