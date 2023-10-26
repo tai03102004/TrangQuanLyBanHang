@@ -6,6 +6,17 @@ html, body {
 body {
     background:radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%);
     overflow: hidden;
+    padding : 20px;
+
+}
+@media (max-width: 768px) {
+    /* Đặt các thuộc tính CSS dành cho kích thước nhỏ hơn 768px ở đây */
+    .container {
+        /* Ví dụ: Đặt chiều rộng của .container cho màn hình nhỏ hơn 768px */
+        width: 100%;
+    }
+
+    /* Đặt các điều chỉnh CSS khác ở đây */
 }
 
 .ocean {
@@ -95,7 +106,6 @@ a {
     background: #fff;
     border-radius: 90px;
     box-shadow: 30px 14px 28px rgba(0, 0, 5, .2), 0 10px 10px rgba(0, 0, 0, .2);
-    position: relative;
     overflow: hidden;
     opacity: 85%;
     width: 820px;
@@ -286,15 +296,39 @@ button.ghost {
 
 
 /* Định dạng biểu tượng con mắt */
-.toggle-password {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
+
+.field {
+    position : relative;
+}
+
+.input1 {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius : 8px;
+    padding: 20px 30px;
+    font-family : "Poppins" , sans-serif;
+    font-size: 16px;
+    transition : all 0.2s linear;
+    height : 70%;
+    position: relative; 
+}
+
+.input1:focus {
+    border-color : #6a5af9;
+}
+
+.eye {
+    position : absolute;
+    right: 15px;
+    top : 50%;
+    transform : translateY(-50%);
     cursor: pointer;
+    max-width: 20px;
+    z-index : 2;
+}
+
+.hidden{
+    display : none;
 }
 
   /* Định dạng input */
-.form-control {
-    padding-right: 30px; /* Để để chỗ cho biểu tượng con mắt */
-}

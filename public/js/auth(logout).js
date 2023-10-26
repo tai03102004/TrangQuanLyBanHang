@@ -74,13 +74,23 @@ if (formContainer){
     })
 }
 // an hien con amt
-document.addEventListener('click', function (e) {
-    if (e.target && e.target.classList.contains('toggle-password')) {
-        const passwordField = document.getElementById('password');
-        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordField.setAttribute('type', type);
-    }
+const input1 = document.querySelector(".input1");
+
+const eyeOpen = document.querySelector(".eye-open");
+
+const eyeClose = document.querySelector(".eye-close");
+
+eyeOpen.addEventListener("click", function(){
+    eyeOpen.classList.add("hidden");
+    input1.setAttribute("type","password");
+    eyeClose.classList.remove("hidden");
 });
+
+eyeClose.addEventListener("click", function(){
+    eyeOpen.classList.remove("hidden");
+    eyeClose.classList.add("hidden");
+    input1.setAttribute("type","text");
+})
 
 // hiển thị hình ảnh
 
